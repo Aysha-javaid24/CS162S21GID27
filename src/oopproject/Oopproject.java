@@ -15,8 +15,8 @@ public class Oopproject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     usermenu obj=new usermenu();
-     obj.setVisible(true);
+      LogIn log=new LogIn();
+      log.show();
      
     }
     
