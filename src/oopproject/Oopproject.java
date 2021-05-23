@@ -3,22 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oopproject_;
+package oopproject;
 
 /**
  *
  * @author Ayesha Shabbir
  */
-public class Oopproject_ {
+public class Oopproject {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Menu m=new Menu();
-        m.show();
-                
+     usermenu obj=new usermenu();
+     obj.setVisible(true);
+     
     }
     
 }
