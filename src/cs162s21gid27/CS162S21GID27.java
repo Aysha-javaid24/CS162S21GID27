@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oopproject;
+package cs162s21gid27;
 
 /**
  *
- * @author Ayesha Shabbir
+ * @author aysha
  */
-public class Oopproject {
+public class CS162S21GID27 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      LogIn log=new LogIn();
-      log.show();
-     
+        // TODO code application logic here
+        LogIn log=new LogIn();
+        log.setVisible(true);
     }
     
 }
