@@ -142,7 +142,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
-                .addGap(47, 47, 47)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
