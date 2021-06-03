@@ -5,58 +5,39 @@
  */
 package cs162s21gid27;
 
-import java.util.Date;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Ayesha Shabbir
  */
-public class register {
+public class register implements Serializable{
+
+       private String emp_id;
+    private String name;
+
+    public register(String emp_id, String name) {
+        this.emp_id = emp_id;
+        this.name = name;
+    }
+
+    public String getEmp_id() {
+        return emp_id;
+    }
 
     public String getName() {
         return name;
     }
 
+    public void setEmp_id(String emp_id) {
+        this.emp_id = emp_id;
+    }
+
     public void setName(String name) {
-        this.name = name;
+   
+         this.name = name;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-     private String name;
-    private String gender;
-    private String email;
-    private String date;
-    private String password;
     
     
 }
