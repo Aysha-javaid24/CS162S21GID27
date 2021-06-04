@@ -5,25 +5,30 @@
  */
 package cs162s21gid27;
 
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
+
 
 
  /*
  * @author aysha
  */
 public class manageAccounts extends javax.swing.JFrame {
-
+ArrayList<String> nameList;
+ArrayList<String> emailList;
     /**
      * Creates new form manageAccounts
      */
     public manageAccounts() {
+        emailList = new ArrayList<>();
+         nameList = new ArrayList<>();
         initComponents();
           setLocationRelativeTo(null);
     }
@@ -41,8 +46,8 @@ public class manageAccounts extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        Email = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -66,15 +71,15 @@ public class manageAccounts extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Email");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                EmailActionPerformed(evt);
             }
         });
 
@@ -102,8 +107,8 @@ public class manageAccounts extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1))))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
@@ -118,11 +123,11 @@ public class manageAccounts extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34)
                 .addComponent(jButton1)
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -216,16 +221,63 @@ public class manageAccounts extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+      String name=Name.getText();
+      String email=Email.getText();
+      register user=new register();
+     
+        try {
+            File reader=new File("userrecord.txt");
+               Scanner scan = new Scanner(reader);
+            while(scan.hasNextLine())
+            {
+                String read = scan.nextLine();
+                System.out.print(read);
+                String[] arr = read.split((";"));
+                nameList.add(arr[0]);
+                emailList.add(arr[1]);
+            }
+        }
+        catch(FileNotFoundException ex)
+        {
+            
+        }
+         
+         
+        nameList.add(Name.getText());
+        emailList.add(Email.getText());
+        try{
+            FileWriter writer = new FileWriter("Login.txt");
+            writer.write("Name;Email");
+            for(int i=0;i<nameList.size();i++)
+            {
+                 writer.write("\n"+nameList.get(i)+";"+emailList.get(i));
+            }
+            writer.close();
+        }
+        catch(IOException ex)
+        {
+            
+        }
+        String emailData = "";
+        String nameData = "";
+       for(int i = 0;i<emailList.size();i++)
+       {
+           emailData = emailData + emailList.get(i)+"\n";
+           nameData = nameData + nameList.get(i)+"\n";
+       }
+       Name.setText("");
+       Email.setText("");
+       Name.setText(nameData);
+       Email.setText(emailData);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_EmailActionPerformed
   
     
     /**
@@ -264,7 +316,8 @@ public class manageAccounts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField Email;
+    private javax.swing.JTextField Name;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -278,6 +331,5 @@ public class manageAccounts extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField name;
     // End of variables declaration//GEN-END:variables
 }
