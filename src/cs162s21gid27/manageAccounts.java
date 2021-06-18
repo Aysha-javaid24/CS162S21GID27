@@ -268,16 +268,7 @@ ArrayList<String> emailList;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-        FileWriter f;
-    try {
-        f = new FileWriter("useracc.txt");
-           String name=Name.getText();
-        String email=Email.getText();
-          f.write("Name"+name+"\n");
-            f.write("Email"+email+"\n");
-    } catch (IOException ex) {
-        Logger.getLogger(manageAccounts.class.getName()).log(Level.SEVERE, null, ex);
-    }
+     
      
     
 
