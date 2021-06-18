@@ -298,7 +298,7 @@ public class usermenu extends javax.swing.JFrame {
         }
         else
         {
-            String data[] = {jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField3.getText()};
+            String data[] = {jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText()};
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             tblModel.addRow(data);
             JOptionPane.showMessageDialog(this,"added successfully");

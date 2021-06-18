@@ -7,6 +7,7 @@ package cs162s21gid27;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -266,6 +267,21 @@ ArrayList<String> emailList;
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+        FileWriter f;
+    try {
+        f = new FileWriter("useracc.txt");
+           String name=Name.getText();
+        String email=Email.getText();
+          f.write("Name"+name+"\n");
+            f.write("Email"+email+"\n");
+    } catch (IOException ex) {
+        Logger.getLogger(manageAccounts.class.getName()).log(Level.SEVERE, null, ex);
+    }
+     
+    
+
+
         if(Name.getText().equals("")||Email.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this,"please enter all data..");
