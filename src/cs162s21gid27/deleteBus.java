@@ -45,6 +45,12 @@ public class deleteBus extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Bus Route No");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+
         jButton1.setText("Search");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -128,6 +134,21 @@ public class deleteBus extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        String string=jTextField1.getText();
+          int length=string.length();
+          char c=evt.getKeyChar();
+          if((evt.getKeyChar()>='0'&&evt.getKeyChar()<='9'))
+          {
+              jTextField1.setEditable(true);
+          }
+          else
+          {
+              jTextField1.setEditable(false);
+          }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments

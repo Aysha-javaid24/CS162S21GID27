@@ -78,6 +78,11 @@ ArrayList<String> emailList;
                 NameActionPerformed(evt);
             }
         });
+        Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NameKeyPressed(evt);
+            }
+        });
 
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -353,6 +358,21 @@ ArrayList<String> emailList;
            JOptionPane.showMessageDialog(this,"update successfully!");
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void NameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyPressed
+        // TODO add your handling code here:
+        String string=Name.getText();
+          int length=string.length();
+          char c=evt.getKeyChar();
+          if((evt.getKeyChar()>='a'&&evt.getKeyChar()<='z')||(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z')||(evt.getKeyChar()==' '))
+          {
+              Name.setEditable(true);
+          }
+          else
+          {
+              Name.setEditable(false);
+          }
+    }//GEN-LAST:event_NameKeyPressed
   
     
     /**

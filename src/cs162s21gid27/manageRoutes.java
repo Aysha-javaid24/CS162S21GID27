@@ -68,6 +68,24 @@ public class manageRoutes extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Arrival City");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField3KeyPressed(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -324,6 +342,51 @@ public class manageRoutes extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this,"update successfully!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        String string=jTextField1.getText();
+          int length=string.length();
+          char c=evt.getKeyChar();
+          if((evt.getKeyChar()>='0'&&evt.getKeyChar()<='9'))
+          {
+              jTextField1.setEditable(true);
+          }
+          else
+          {
+              jTextField1.setEditable(false);
+          }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+        String string=jTextField2.getText();
+          int length=string.length();
+          char c=evt.getKeyChar();
+          if((evt.getKeyChar()>='a'&&evt.getKeyChar()<='z')||(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z')||(evt.getKeyChar()==' '))
+          {
+              jTextField2.setEditable(true);
+          }
+          else
+          {
+              jTextField2.setEditable(false);
+          }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        // TODO add your handling code here:
+        String string=jTextField3.getText();
+          int length=string.length();
+          char c=evt.getKeyChar();
+          if((evt.getKeyChar()>='a'&&evt.getKeyChar()<='z')||(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z')||(evt.getKeyChar()==' '))
+          {
+              jTextField3.setEditable(true);
+          }
+          else
+          {
+              jTextField3.setEditable(false);
+          }
+    }//GEN-LAST:event_jTextField3KeyPressed
 
     /**
      * @param args the command line arguments
