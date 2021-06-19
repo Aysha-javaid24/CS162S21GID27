@@ -89,6 +89,7 @@ private static ArrayList<userDetail> loadUser() {
 public static UsersCrud getInstance() {
         if (usersCrud == null) {
             usersCrud = new UsersCrud();
+            usersCrud.setUserList(loadUser());
             return usersCrud;
         }
         return usersCrud;

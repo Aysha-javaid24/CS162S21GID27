@@ -5,6 +5,10 @@
  */
 package cs162s21gid27;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aysha
@@ -30,10 +34,9 @@ public class DeleteAccount extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         L1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         B3 = new javax.swing.JButton();
+        T1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,17 +46,7 @@ public class DeleteAccount extends javax.swing.JFrame {
         L1.setText("Delete User's Account");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_e_mail_48px_1.png")); // NOI18N
         jLabel2.setText("Email");
-
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_woman_detective_48px.png")); // NOI18N
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setBackground(new java.awt.Color(153, 204, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -81,20 +74,18 @@ public class DeleteAccount extends javax.swing.JFrame {
                 .addGap(37, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(B3))
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addGap(35, 35, 35))
+                        .addComponent(jButton2)
+                        .addGap(90, 90, 90)
+                        .addComponent(B3)
+                        .addGap(93, 93, 93))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(L1)
-                        .addGap(106, 106, 106))))
+                        .addGap(106, 106, 106))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,15 +93,14 @@ public class DeleteAccount extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(L1)
                 .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(40, 40, 40)
+                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(B3))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,14 +133,45 @@ public class DeleteAccount extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_B3ActionPerformed
+        UsersCrud crud = UsersCrud.getInstance();
+        userDetail user = new userDetail();
+        user.setCNIC(T1.getText());
+        if (T1.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Enter CNIC");
+        } else {
+            if (crud.searchUser(user) != -1) {
+                user = crud.getUserList().get(crud.searchUser(user));
+                crud.getUserList().remove(user);
+                JOptionPane.showMessageDialog(null, "User has been removed Successfully");
+                manageAccounts manage = new manageAccounts();
+                saveUsers();
+                crud.setUserList(crud.getUserList());
+                manage.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            }
 
+        }
+    }//GEN-LAST:event_B3ActionPerformed
+private void saveUsers() {
+        try {
+            UsersCrud crud = UsersCrud.getInstance();
+            FileWriter writer = new FileWriter("Users.txt");
+            writer.write("Name:Email:CNIC");
+            for (int i = 0; i < crud.getUserList().size(); i++) {
+                writer.write("\n"+crud.getUserList().get(i).getName() + ":");
+                writer.write(crud.getUserList().get(i).getEmail() + ":");
+                writer.write(crud.getUserList().get(i).getCNIC());
+            }
+            writer.close();
+
+        } catch (IOException ex) {
+             JOptionPane.showMessageDialog(null, "Error....");
+        }
+    }
     /**
      * @param args the command line arguments
       */
@@ -185,10 +206,9 @@ public class DeleteAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B3;
     private javax.swing.JLabel L1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField T1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

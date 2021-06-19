@@ -63,17 +63,17 @@ ArrayList<String> email = new ArrayList<String>();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(224, 75, 56));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_name_64px.png")); // NOI18N
         jLabel2.setText("Name");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_e_mail_48px_1.png")); // NOI18N
         jLabel3.setText("Email");
 
         Name.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,6 @@ ArrayList<String> email = new ArrayList<String>();
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_restroom_48px.png")); // NOI18N
         jLabel1.setText("Gender");
 
         RB1.setText("Male");
@@ -115,7 +114,6 @@ ArrayList<String> email = new ArrayList<String>();
         RB2.setText("Female");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_id_button_48px.png")); // NOI18N
         jLabel4.setText("CNIC");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -141,7 +139,7 @@ ArrayList<String> email = new ArrayList<String>();
                         .addComponent(RB1)
                         .addGap(26, 26, 26)
                         .addComponent(RB2)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +165,7 @@ ArrayList<String> email = new ArrayList<String>();
                     .addComponent(RB2))
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Delete Account");
@@ -206,13 +204,27 @@ ArrayList<String> email = new ArrayList<String>();
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setText("ViewUsers");
+
+        jMenuItem2.setText("View");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu4);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,11 +263,8 @@ ArrayList<String> email = new ArrayList<String>();
         user.setName(Name.getText());
         user.setEmail(Email.getText());
         user.setCNIC(cnic.getText());
-        JOptionPane.showMessageDialog(null, "Checking 0");
         if (Validators.validateCNIC(cnic.getText()) && Validators.validateEmail(Email.getText()) && Validators.validateName(Name.getText())) {
-            JOptionPane.showMessageDialog(null, "Checking 1");
             if (crud.addUser(user) == true) {
-                JOptionPane.showMessageDialog(null, "Checking 2");
                 
                 JOptionPane.showMessageDialog(null, "User is Added Successfully");
                 adminmenus menus = new adminmenus();
@@ -276,7 +285,7 @@ ArrayList<String> email = new ArrayList<String>();
             FileWriter writer = new FileWriter("Users.txt");
             writer.write("Name:Email:CNIC");
             for (int i = 0; i < crud.getUserList().size(); i++) {
-                writer.write(crud.getUserList().get(i).getName() + ":");
+                writer.write("\n"+crud.getUserList().get(i).getName() + ":");
                 writer.write(crud.getUserList().get(i).getEmail() + ":");
                 writer.write(crud.getUserList().get(i).getCNIC());
             }
@@ -285,7 +294,6 @@ ArrayList<String> email = new ArrayList<String>();
         } catch (IOException ex) {
              JOptionPane.showMessageDialog(null, "Error....");
         }
-
     }
     private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
@@ -297,7 +305,9 @@ ArrayList<String> email = new ArrayList<String>();
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-     
+        dispose();
+     updateAccount update=new updateAccount();
+     update.show();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void NameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyPressed
@@ -307,6 +317,13 @@ ArrayList<String> email = new ArrayList<String>();
     private void RB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RB1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        viewUsers view=new viewUsers();
+        view.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
   
     
     /**
@@ -358,8 +375,10 @@ ArrayList<String> email = new ArrayList<String>();
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
