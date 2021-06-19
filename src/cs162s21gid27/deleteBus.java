@@ -43,7 +43,7 @@ public class deleteBus extends javax.swing.JFrame {
         jLabel1.setText("Delete Bus Route");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_keycap_number_sign_48px_1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_keycap_number_sign_48px_1.png"))); // NOI18N
         jLabel2.setText("Bus Route No");
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {

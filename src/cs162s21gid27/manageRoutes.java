@@ -65,15 +65,15 @@ public class manageRoutes extends javax.swing.JFrame {
         jLabel1.setText("Add New Route");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_keycap_number_sign_48px_1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_keycap_number_sign_48px_1.png"))); // NOI18N
         jLabel2.setText("Bus Route No");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_cityscape_48px_2.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_cityscape_48px_2.png"))); // NOI18N
         jLabel3.setText("Departure City");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_cityscape_at_dusk_48px.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_cityscape_at_dusk_48px.png"))); // NOI18N
         jLabel4.setText("Arrival City");
 
         route.addActionListener(new java.awt.event.ActionListener() {
