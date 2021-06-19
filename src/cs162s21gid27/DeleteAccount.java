@@ -43,7 +43,7 @@ public class DeleteAccount extends javax.swing.JFrame {
         L1.setText("Delete User's Account");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Password");
+        jLabel2.setText("Email");
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +60,11 @@ public class DeleteAccount extends javax.swing.JFrame {
         });
 
         B3.setText("Delete");
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,6 +139,10 @@ public class DeleteAccount extends javax.swing.JFrame {
          // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B3ActionPerformed
+
     /**
      * @param args the command line arguments
       */
@@ -162,11 +171,7 @@ public class DeleteAccount extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DeleteAccount().setVisible(true);
-            }
-        });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

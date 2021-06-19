@@ -5,13 +5,13 @@
  */
 package cs162s21gid27;
 
-import java.io.Serializable;
+
 
 /**
  *
  * @author Ayesha Shabbir
  */
-class addacount implements Serializable {
+class addacount  {
         private String email;
         private String name;
          public addacount(String email, String name) {

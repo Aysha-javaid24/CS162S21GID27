@@ -24,14 +24,14 @@ import javax.swing.table.DefaultTableModel;
  * @author aysha
  */
 public class manageAccounts extends javax.swing.JFrame {
-ArrayList<String> nameList;
-ArrayList<String> emailList;
+ArrayList<String> name = new ArrayList<String>();
+ArrayList<String> email = new ArrayList<String>();
     /**
      * Creates new form manageAccounts
      */
     public manageAccounts() {
-        emailList = new ArrayList<>();
-         nameList = new ArrayList<>();
+        
+        
         initComponents();
           setLocationRelativeTo(null);
     }
@@ -52,10 +52,8 @@ ArrayList<String> emailList;
         Email = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        RB1 = new javax.swing.JRadioButton();
+        RB2 = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -102,25 +100,9 @@ ArrayList<String> emailList;
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Gender");
 
-        jRadioButton1.setText("Male");
+        RB1.setText("Male");
 
-        jRadioButton2.setText("Female");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Name", "Email"
-            }
-        ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
+        RB2.setText("Female");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,7 +111,6 @@ ArrayList<String> emailList;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -140,14 +121,11 @@ ArrayList<String> emailList;
                                 .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                                 .addComponent(Name))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(RB1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2)))))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(185, 185, 185))
+                                .addComponent(RB2))
+                            .addComponent(jButton1))))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,13 +141,11 @@ ArrayList<String> emailList;
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addGap(3, 3, 3)
+                    .addComponent(RB1)
+                    .addComponent(RB2))
+                .addGap(43, 43, 43)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Delete Account");
@@ -214,17 +190,13 @@ ArrayList<String> emailList;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -232,28 +204,13 @@ ArrayList<String> emailList;
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        /*dispose();
+        dispose();
                 java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DeleteAccount().setVisible(true);
             }
-        });*/
-                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-        if(jTable1.getSelectedRowCount()==1)
-        {
-            tblModel.removeRow(jTable1.getSelectedRow());
-        }
-        else
-        {
-            if(jTable1.getSelectedRowCount()==0)
-            {
-                JOptionPane.showMessageDialog(this,"table is empty");
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this,"please enter single row to delete");
-            }
-        }
+        });
+             
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -267,39 +224,24 @@ ArrayList<String> emailList;
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
-     
-     
-    
-
-
-        if(Name.getText().equals("")||Email.getText().equals(""))
+      if(RB1.isSelected())
         {
-            JOptionPane.showMessageDialog(this,"please enter all data..");
+          String gender = "Male";
         }
-        else
+        else if(RB2.isSelected())
         {
-            String data[] = {Name.getText(),Email.getText()};
-            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-            tblModel.addRow(data);
-            JOptionPane.showMessageDialog(this,"added successfully");
-            Name.setText("");
-            Email.setText("");
+          String gender = "Female";
         }
-        /*String name=Name.getText();
-      String email=Email.getText();
-      register user=new register();
-     
-        try {
-            File reader=new File("userrecord.txt");
-               Scanner scan = new Scanner(reader);
+        try{
+            FileReader reader = new FileReader("useracc.txt");
+            Scanner scan = new Scanner(reader);
             while(scan.hasNextLine())
             {
                 String read = scan.nextLine();
                 System.out.print(read);
                 String[] arr = read.split((";"));
-                nameList.add(arr[0]);
-                emailList.add(arr[1]);
+                name.add(arr[0]);
+                email.add(arr[1]);
             }
         }
         catch(FileNotFoundException ex)
@@ -308,14 +250,14 @@ ArrayList<String> emailList;
         }
          
          
-        nameList.add(Name.getText());
-        emailList.add(Email.getText());
+        name.add(Name.getText());
+        email.add(Email.getText());
         try{
-            FileWriter writer = new FileWriter("Login.txt");
+            FileWriter writer = new FileWriter("useracc.txt");
             writer.write("Name;Email");
-            for(int i=0;i<nameList.size();i++)
+            for(int i=0;i<name.size();i++)
             {
-                 writer.write("\n"+nameList.get(i)+";"+emailList.get(i));
+                 writer.write("\n"+name.get(i)+"             ;              "+email.get(i));
             }
             writer.close();
         }
@@ -325,15 +267,22 @@ ArrayList<String> emailList;
         }
         String emailData = "";
         String nameData = "";
-       for(int i = 0;i<emailList.size();i++)
+       for(int i = 0;i<email.size();i++)
        {
-           emailData = emailData + emailList.get(i)+"\n";
-           nameData = nameData + nameList.get(i)+"\n";
+           emailData = emailData + email.get(i)+"\n";
+           nameData = nameData + name.get(i)+"\n";
        }
        Name.setText("");
        Email.setText("");
-       Name.setText(nameData);
-       Email.setText(emailData);*/
+      Name.setText(nameData);
+       Email.setText(emailData);    
+     
+     
+    
+
+
+     
+      
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
@@ -344,26 +293,9 @@ ArrayList<String> emailList;
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-        String tblName = tblModel.getValueAt(jTable1.getSelectedRow(),0).toString();
-        String tblemail = tblModel.getValueAt(jTable1.getSelectedRow(),1).toString();
-        Name.setText(tblName);
-        Email.setText(tblemail);
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-        if(jTable1.getSelectedRowCount()==1)
-        {
-           String name= Name.getText();
-           String sub= Email.getText();
-           tblModel.setValueAt(name,jTable1.getSelectedRow(),0);
-           tblModel.setValueAt(sub,jTable1.getSelectedRow(),1);
-           JOptionPane.showMessageDialog(this,"update successfully!");
-        }
+     
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void NameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyPressed
@@ -420,6 +352,8 @@ ArrayList<String> emailList;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Name;
+    private javax.swing.JRadioButton RB1;
+    private javax.swing.JRadioButton RB2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -432,9 +366,5 @@ ArrayList<String> emailList;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
