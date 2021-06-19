@@ -1,2 +1,3 @@
 Name:Email:CNIC
-hihihi:habiba@gmail.com:3520211112768
+hihihi:3520211112768:habiba@gmail.com
+rizwan:ayesha@gmail.com:0987654321123
