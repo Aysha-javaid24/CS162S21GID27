@@ -71,9 +71,11 @@ ArrayList<String> email = new ArrayList<String>();
         jPanel1.setBackground(new java.awt.Color(224, 75, 56));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_name_64px.png"))); // NOI18N
         jLabel2.setText("Name");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_e_mail_48px_1.png"))); // NOI18N
         jLabel3.setText("Email");
 
         Name.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +104,7 @@ ArrayList<String> email = new ArrayList<String>();
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_restroom_48px.png"))); // NOI18N
         jLabel1.setText("Gender");
 
         RB1.setText("Male");
@@ -114,6 +117,7 @@ ArrayList<String> email = new ArrayList<String>();
         RB2.setText("Female");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_id_button_48px.png"))); // NOI18N
         jLabel4.setText("CNIC");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

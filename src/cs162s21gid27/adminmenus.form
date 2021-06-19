@@ -106,7 +106,7 @@
               <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_receipt_48px_1.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_receipt_48px_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Manage Accounts"/>
           </Properties>
@@ -123,7 +123,7 @@
               <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_motorway_48px.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_motorway_48px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Manage Routes"/>
           </Properties>

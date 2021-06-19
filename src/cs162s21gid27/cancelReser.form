@@ -115,7 +115,7 @@
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_e_mail_48px_1.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_e_mail_48px_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
@@ -128,7 +128,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_man_detective_48px.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_man_detective_48px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Search"/>
           </Properties>

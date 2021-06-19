@@ -43,7 +43,7 @@ public class cancelReser extends javax.swing.JFrame {
         jLabel1.setText("Cancel Reservation");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_e_mail_48px_1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_e_mail_48px_1.png"))); // NOI18N
         jLabel2.setText("Email");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class cancelReser extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_man_detective_48px.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_man_detective_48px.png"))); // NOI18N
         jButton1.setText("Search");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

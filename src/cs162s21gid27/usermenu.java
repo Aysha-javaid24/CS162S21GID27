@@ -70,15 +70,15 @@ public class usermenu extends javax.swing.JFrame {
         reserve.setText("Reserve Seat");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_e_mail_48px_1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_e_mail_48px_1.png"))); // NOI18N
         jLabel2.setText("Email");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_cityscape_48px_2.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_cityscape_48px_2.png"))); // NOI18N
         jLabel3.setText("Departing City");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_cityscape_at_dusk_48px.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_cityscape_at_dusk_48px.png"))); // NOI18N
         jLabel4.setText("Arrival City");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class usermenu extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ayesha Shabbir\\Desktop\\Project Icons\\icons8_spiral_calendar_48px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_spiral_calendar_48px.png"))); // NOI18N
         jLabel1.setText("Date");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

@@ -224,7 +224,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_e_mail_48px_1.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_e_mail_48px_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
@@ -235,7 +235,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_cityscape_48px_2.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_cityscape_48px_2.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Departing City"/>
           </Properties>
@@ -246,7 +246,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_cityscape_at_dusk_48px.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_cityscape_at_dusk_48px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Arrival City"/>
           </Properties>
@@ -293,7 +293,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Ayesha Shabbir\Desktop\Project Icons\icons8_spiral_calendar_48px.png"/>
+              <Image iconType="3" name="/cs162s21gid27/icons8_spiral_calendar_48px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
