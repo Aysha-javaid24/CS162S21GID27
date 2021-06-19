@@ -240,9 +240,13 @@ ArrayList<String> email = new ArrayList<String>();
         userDetail user = new userDetail();
         user.setName(Name.getText());
         user.setEmail(Email.getText());
-        user.setEmail(cnic.getText());
+        user.setCNIC(cnic.getText());
+        JOptionPane.showMessageDialog(null, "Checking 0");
         if (Validators.validateCNIC(cnic.getText()) && Validators.validateEmail(Email.getText()) && Validators.validateName(Name.getText())) {
+            JOptionPane.showMessageDialog(null, "Checking 1");
             if (crud.addUser(user) == true) {
+                JOptionPane.showMessageDialog(null, "Checking 2");
+                
                 JOptionPane.showMessageDialog(null, "User is Added Successfully");
                 adminmenus menus = new adminmenus();
                 crud.setUserList(crud.getUserList());
@@ -269,7 +273,7 @@ ArrayList<String> email = new ArrayList<String>();
             writer.close();
 
         } catch (IOException ex) {
-
+             JOptionPane.showMessageDialog(null, "Error....");
         }
 
     }
