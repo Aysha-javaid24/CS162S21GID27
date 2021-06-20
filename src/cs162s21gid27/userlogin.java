@@ -184,20 +184,7 @@ public class userlogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-   String Mail=mail.getText();
-        String pass=passw.getText();
-        if(Mail.equals("user") && pass.equals("321"))
-        {
-                  java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new usermenu().setVisible(true);
-            }
-        });
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Wrong password and username");
-        }        
+ 
 
         // TODO add your handling code here:
         dispose();        // TODO add your handling code here:
