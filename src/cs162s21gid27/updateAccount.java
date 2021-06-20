@@ -241,9 +241,6 @@ public class updateAccount extends javax.swing.JFrame {
                 jTextField2.setText(crud.getUserList().get(crud.searchUser(user)).getName());
                 jTextField3.setText(crud.getUserList().get(crud.searchUser(user)).getEmail());
                 jTextField4.setText(crud.getUserList().get(crud.searchUser(user)).getCNIC());
-                //String[] splitName = crud.getUserList().get(crud.searchUser(user)).getName().split(";");
-                //jTextField6.setText(splitName[0]);
-                //jTextField2.setText(splitName[1]);
                 jTabbedPane1.setSelectedIndex(1);
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Credentials");

@@ -166,6 +166,11 @@ public class manageRoutes extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Edit bus route");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -252,17 +257,17 @@ public class manageRoutes extends javax.swing.JFrame {
         route.setBusNo(c0.getText());
         route.setArrCity(c1.getText());
         route.setDepCity(c2.getText());
-        if (Validators.validateCNIC(cnic.getText()) && Validators.validateEmail(Email.getText()) && Validators.validateName(Name.getText())) {
-            if (crud.addUser(user) == true) {
+        if (Validators.validateBusNo(c0.getText()) && Validators.validateName(c1.getText()) && Validators.validateName(c2.getText())) {
+            if (crud.addRoute(route) == true) {
                 
-                JOptionPane.showMessageDialog(null, "User is Added Successfully");
+                JOptionPane.showMessageDialog(null, "Route is Added Successfully");
                 adminmenus menus = new adminmenus();
-                crud.setUserList(crud.getUserList());
-                saveUsers();
+                crud.setrouteList(crud.getrouteList());
+                saveRoutes();
                 menus.setVisible(true);
                 this.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "User of same email or CNIC is already Entered");
+                JOptionPane.showMessageDialog(null, "Same route is already Entered");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Invalid Data");
@@ -283,7 +288,22 @@ public class manageRoutes extends javax.swing.JFrame {
               c0.setEditable(false);
           }
     }//GEN-LAST:event_c0KeyPressed
+    private void saveRoutes() {
+        try {
+            UsersCrud crud = UsersCrud.getInstance();
+            FileWriter writer = new FileWriter("Routes.txt");
+            writer.write("BusNo:ArrivalCity:DepartureCity");
+            for (int i = 0; i < crud.getrouteList().size(); i++) {
+                writer.write("\n"+crud.getrouteList().get(i).getBusNo() + ":");
+                writer.write(crud.getrouteList().get(i).getArrCity() + ":");
+                writer.write(crud.getrouteList().get(i).getDepCity());
+            }
+            writer.close();
 
+        } catch (IOException ex) {
+             JOptionPane.showMessageDialog(null, "Error....");
+        }
+    }
     private void c1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c1KeyPressed
         // TODO add your handling code here:
         String string=c1.getText();
@@ -317,6 +337,13 @@ public class manageRoutes extends javax.swing.JFrame {
     private void c0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_c0ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        editRoute edit=new editRoute();
+        edit.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

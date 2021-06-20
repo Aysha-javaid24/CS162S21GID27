@@ -156,6 +156,8 @@ public static UsersCrud getInstance() {
         if (usersCrud == null) {
             usersCrud = new UsersCrud();
             usersCrud.setUserList(loadUser());
+            usersCrud.setrouteList(loadRoute());
+
             return usersCrud;
         }
         return usersCrud;

@@ -5,6 +5,9 @@
  */
 package cs162s21gid27;
 
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aysha
@@ -16,6 +19,24 @@ public class viewRoutes extends javax.swing.JFrame {
      */
     public viewRoutes() {
         initComponents();
+        DefaultTableModel model = new DefaultTableModel();
+        UsersCrud crud = UsersCrud.getInstance();
+
+        model.addColumn("Index");
+        model.addColumn("Bus No");
+        model.addColumn("Arrival City");
+        model.addColumn("Departure City");
+        jTable1.setForeground(Color.BLACK);
+        model.setNumRows(crud.getrouteList().size());
+        for (int i = 0; i < crud.getrouteList().size(); i++) {
+            String[] rowTable = new String[5];
+            model.setValueAt((i + 1), i, 0);
+            model.setValueAt(crud.getrouteList().get(i).getBusNo(), i, 1);
+            model.setValueAt(crud.getrouteList().get(i).getArrCity(), i, 2);
+            model.setValueAt(crud.getrouteList().get(i).getDepCity(), i, 3);
+        }
+        jTable1.setModel(model);
+         dispose();
     }
 
     /**
@@ -43,13 +64,13 @@ public class viewRoutes extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Bus Route NO", "Departure City", "Arrival City"
+                "Index", "Bus No", "Arrival City", "Departure City"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -72,11 +93,11 @@ public class viewRoutes extends javax.swing.JFrame {
                         .addGap(204, 204, 204)
                         .addComponent(jLabel1))
                     .addComponent(jButton1))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 212, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,9 +105,9 @@ public class viewRoutes extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -27,7 +27,7 @@ public class BusDetails {
     {
         return this.ArrivalCity;
     }
-    public String getepCity()
+    public String getDepCity()
     {
         return this.DepartureCity;
     }

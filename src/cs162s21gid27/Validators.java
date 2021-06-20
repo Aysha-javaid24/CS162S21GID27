@@ -70,4 +70,15 @@ public class Validators {
         }
         return flag;
     }
+    public static boolean validateBusNo(String no){
+        boolean flag=false;
+        if(no.charAt(0)>='0'&&no.charAt(0)<='9')
+        {
+            flag=true;
+        }else{
+            flag=false;
+        }
+        return flag;
+    }
 }
+
