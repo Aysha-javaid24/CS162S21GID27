@@ -59,7 +59,7 @@ public class adminmenus extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setForeground(java.awt.Color.red);
+        jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -57,6 +57,7 @@ public class updateAccount extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_e_mail_48px_1.png"))); // NOI18N
         jLabel1.setText("Email");
 
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +66,7 @@ public class updateAccount extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Next");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

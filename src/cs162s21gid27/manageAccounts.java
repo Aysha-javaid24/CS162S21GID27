@@ -95,6 +95,7 @@ ArrayList<String> email = new ArrayList<String>();
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Resister");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

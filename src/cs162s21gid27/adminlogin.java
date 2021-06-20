@@ -204,19 +204,19 @@ public class adminlogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String name=username.getText();
         String pass=password.getText();
-        if(name.equals("admin098") && pass.equals("123"))
+       if(name.equals("admin098") && pass.equals("123"))
         {
                   java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new adminmenus().setVisible(true);
             }
         });
-        }
-        else
+        } 
+              
+            else
         {
             JOptionPane.showMessageDialog(null, "Wrong password and username");
-        }        
-
+        }
         // TODO add your handling code here:
         dispose();
        

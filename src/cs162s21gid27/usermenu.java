@@ -111,6 +111,7 @@ public class usermenu extends javax.swing.JFrame {
             }
         });
 
+        reserve2.setBackground(new java.awt.Color(102, 204, 255));
         reserve2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         reserve2.setText("Reserve");
         reserve2.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +247,7 @@ public class usermenu extends javax.swing.JFrame {
 
         jMenu5.setText("About");
 
+        jMenuItem4.setBackground(new java.awt.Color(255, 0, 0));
         jMenuItem4.setText("About us");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,8 +277,8 @@ public class usermenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-   dispose();
-           java.awt.EventQueue.invokeLater(new Runnable() {
+        dispose();
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new cancelReser().setVisible(true);
             }
@@ -285,16 +287,16 @@ public class usermenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       reserve.setText(" Reserve Seat");
-       reserve2.setText("Reserve");
-   
+        reserve.setText(" Reserve Seat");
+        reserve2.setText("Reserve");
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
- 
+
         java.awt.EventQueue.invokeLater(new Runnable() {
-        
-      public void run() {
+
+            public void run() {
                 new view().setVisible(true);
             }
         });        // TODO add your handling code here:
@@ -302,30 +304,27 @@ public class usermenu extends javax.swing.JFrame {
 
     private void reserve2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserve2ActionPerformed
         // TODO add your handling code here:
-        
-        if(jTextField1.getText().equals("")||jTextField2.getText().equals("")||jTextField3.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(this,"please enter all data..");
-        }
-        else
-        {
-            String data[] = {jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText()};
-            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+
+        if (jTextField1.getText().equals("") || jTextField2.getText().equals("") || jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "please enter all data..");
+        } else {
+            String data[] = {jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()};
+            DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
             tblModel.addRow(data);
-            JOptionPane.showMessageDialog(this,"added successfully");
+            JOptionPane.showMessageDialog(this, "added successfully");
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
             jTextField4.setText("");
             dispose();
-           
+
         }
     }//GEN-LAST:event_reserve2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
-                java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LogIn().setVisible(true);
             }
@@ -334,13 +333,12 @@ public class usermenu extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-       dispose();
-       
-         java.awt.EventQueue.invokeLater(new Runnable() {
+        dispose();
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new about().setVisible(true);
             }
-        }); 
+        });
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -353,32 +351,26 @@ public class usermenu extends javax.swing.JFrame {
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         // TODO add your handling code here:
-        String string=jTextField2.getText();
-          int length=string.length();
-          char c=evt.getKeyChar();
-          if((evt.getKeyChar()>='a'&&evt.getKeyChar()<='z')||(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z')||(evt.getKeyChar()==' '))
-          {
-              jTextField2.setEditable(true);
-          }
-          else
-          {
-              jTextField2.setEditable(false);
-          }
+        String string = jTextField2.getText();
+        int length = string.length();
+        char c = evt.getKeyChar();
+        if ((evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') || (evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') || (evt.getKeyChar() == ' ')) {
+            jTextField2.setEditable(true);
+        } else {
+            jTextField2.setEditable(false);
+        }
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
         // TODO add your handling code here:
-        String string=jTextField3.getText();
-          int length=string.length();
-          char c=evt.getKeyChar();
-          if((evt.getKeyChar()>='a'&&evt.getKeyChar()<='z')||(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z')||(evt.getKeyChar()==' '))
-          {
-              jTextField3.setEditable(true);
-          }
-          else
-          {
-              jTextField3.setEditable(false);
-          }
+        String string = jTextField3.getText();
+        int length = string.length();
+        char c = evt.getKeyChar();
+        if ((evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') || (evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') || (evt.getKeyChar() == ' ')) {
+            jTextField3.setEditable(true);
+        } else {
+            jTextField3.setEditable(false);
+        }
     }//GEN-LAST:event_jTextField3KeyPressed
 
     /**
@@ -409,11 +401,7 @@ public class usermenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new usermenu().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
