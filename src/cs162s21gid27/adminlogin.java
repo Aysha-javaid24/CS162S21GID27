@@ -216,6 +216,11 @@ public class adminlogin extends javax.swing.JFrame {
             else
         {
             JOptionPane.showMessageDialog(null, "Wrong password and username");
+             java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LogIn().setVisible(true);
+            }
+        });
         }
         // TODO add your handling code here:
         dispose();
