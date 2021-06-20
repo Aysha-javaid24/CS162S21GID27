@@ -277,7 +277,7 @@ ArrayList<String> email = new ArrayList<String>();
                 menus.setVisible(true);
                 this.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Student of same email or CNIC is already Entered");
+                JOptionPane.showMessageDialog(null, "User of same email or CNIC is already Entered");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Invalid Data");

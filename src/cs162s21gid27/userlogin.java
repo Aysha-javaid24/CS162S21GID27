@@ -187,7 +187,9 @@ public class userlogin extends javax.swing.JFrame {
  
 
         // TODO add your handling code here:
-        dispose();        // TODO add your handling code here:
+        dispose();
+        usermenu menu=new usermenu();
+        menu.show();
       
       
     }//GEN-LAST:event_jButton2ActionPerformed

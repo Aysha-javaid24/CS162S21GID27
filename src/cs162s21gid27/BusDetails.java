@@ -14,6 +14,21 @@ public class BusDetails {
     protected String ArrivalCity;
     protected String DepartureCity;
     //////////
-    
-    
+    public void setArrCity(String arr)
+    {
+        this.ArrivalCity = arr;
+    }
+    public void setDepCity(String dep)
+    {
+        this.DepartureCity = dep;
+    }
+    /////////
+    public String getArrCity()
+    {
+        return this.ArrivalCity;
+    }
+    public String getepCity()
+    {
+        return this.DepartureCity;
+    }
 }

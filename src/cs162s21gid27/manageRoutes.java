@@ -44,7 +44,7 @@ public class manageRoutes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        route = new javax.swing.JTextField();
+        c0 = new javax.swing.JTextField();
         c1 = new javax.swing.JTextField();
         c2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -76,14 +76,14 @@ public class manageRoutes extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_cityscape_at_dusk_48px.png"))); // NOI18N
         jLabel4.setText("Arrival City");
 
-        route.addActionListener(new java.awt.event.ActionListener() {
+        c0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                routeActionPerformed(evt);
+                c0ActionPerformed(evt);
             }
         });
-        route.addKeyListener(new java.awt.event.KeyAdapter() {
+        c0.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                routeKeyPressed(evt);
+                c0KeyPressed(evt);
             }
         });
 
@@ -116,7 +116,7 @@ public class manageRoutes extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(route, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(c0, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -140,7 +140,7 @@ public class manageRoutes extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(route, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,35 +246,42 @@ public class manageRoutes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         FileWriter f;
-    try {
-        f = new FileWriter("addroute.txt");
-         
-           String name=route.getText();
-        String city=c1.getText();
-        String city2=c2.getText();
-          f.write("Name"+name+"\n");
-            f.write("Departure City"+c1+"\n");
-             f.write("Arrival City"+c1+"\n");
-    } catch (IOException ex) {
-        Logger.getLogger(manageAccounts.class.getName()).log(Level.SEVERE, null, ex);
-    }
+         UsersCrud crud = UsersCrud.getInstance();
+        routeDetail route = new routeDetail();
+        route.setBusNo(c0.getText());
+        route.setArrCity(c1.getText());
+        route.setDepCity(c2.getText());
+        if (Validators.validateCNIC(cnic.getText()) && Validators.validateEmail(Email.getText()) && Validators.validateName(Name.getText())) {
+            if (crud.addUser(user) == true) {
+                
+                JOptionPane.showMessageDialog(null, "User is Added Successfully");
+                adminmenus menus = new adminmenus();
+                crud.setUserList(crud.getUserList());
+                saveUsers();
+                menus.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "User of same email or CNIC is already Entered");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Data");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void routeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_routeKeyPressed
+    private void c0KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c0KeyPressed
         // TODO add your handling code here:
-        String string=route.getText();
+        String string=c0.getText();
           int length=string.length();
           char c=evt.getKeyChar();
           if((evt.getKeyChar()>='0'&&evt.getKeyChar()<='9'))
           {
-              route.setEditable(true);
+              c0.setEditable(true);
           }
           else
           {
-              route.setEditable(false);
+              c0.setEditable(false);
           }
-    }//GEN-LAST:event_routeKeyPressed
+    }//GEN-LAST:event_c0KeyPressed
 
     private void c1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c1KeyPressed
         // TODO add your handling code here:
@@ -306,9 +313,9 @@ public class manageRoutes extends javax.swing.JFrame {
           }
     }//GEN-LAST:event_c2KeyPressed
 
-    private void routeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routeActionPerformed
+    private void c0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_routeActionPerformed
+    }//GEN-LAST:event_c0ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,6 +353,7 @@ public class manageRoutes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField c0;
     private javax.swing.JTextField c1;
     private javax.swing.JTextField c2;
     private javax.swing.JButton jButton1;
@@ -362,6 +370,5 @@ public class manageRoutes extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField route;
     // End of variables declaration//GEN-END:variables
 }

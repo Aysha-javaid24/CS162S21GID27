@@ -17,14 +17,21 @@ import javax.swing.JOptionPane;
  */
 public class UsersCrud {
     private ArrayList<userDetail> userList = new ArrayList<userDetail>();
+    private ArrayList<routeDetail> routeList = new ArrayList<routeDetail>();
     private static UsersCrud usersCrud = null;
     /////////////////////
     public void setUserList(ArrayList<userDetail> usersList) {
         this.userList = usersList;
     }
+    public void setrouteList(ArrayList<routeDetail> routesList) {
+        this.routeList = routesList;
+    }
     ////////////////////
     public ArrayList<userDetail> getUserList() {
         return this.userList;
+    }
+    public ArrayList<routeDetail> getrouteList() {
+        return this.routeList;
     }
     ////////////////////
     public int searchUser(userDetail users) {
@@ -52,12 +59,43 @@ public boolean deleteUser(userDetail users) {
         return false;
     }
 ////////////////////
-public boolean editStudent(int index, userDetail users) {
+public boolean editUser(int index, userDetail users) {
 
         this.userList.set(index, users);
         return true;
     }
+//////////////////
+public int searchRoute(routeDetail routes) {
+        for (int i = 0; i < this.routeList.size(); i++) {
+            if (this.routeList.get(i).BusRouteNo.equals(routes.getBusNo())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+////////////////
+public boolean addRoute(routeDetail routes) {
+        if (searchRoute(routes) == -1) {
+            this.routeList.add(routes);
+            return true;
+        }
+        return false;
+    }
+///////////////
+public boolean deleteRoute(routeDetail routes) {
+        if (searchRoute(routes) != -1) {
+            this.userList.remove(routes);
+            return true;
+        }
+        return false;
+    }
+////////////
+public boolean editRoute(int index,routeDetail routes ) {
 
+        this.routeList.set(index, routes);
+        return true;
+    }
+////////////
 private static ArrayList<userDetail> loadUser() {
         try {
             int count = 0;
@@ -85,7 +123,35 @@ private static ArrayList<userDetail> loadUser() {
         }
         return null;
     }
+//////////////
+private static ArrayList<routeDetail> loadRoute() {
+        try {
+            int count = 0;
+            File reader = new File("Routes.txt");
+            Scanner Reader = new Scanner(reader);
+            ArrayList<routeDetail> routeList = new ArrayList<routeDetail>();
+            while (Reader.hasNextLine()) {
+                if (count > 0) {
+                    String[] string = Reader.nextLine().split(":");
 
+                    routeDetail routes = new routeDetail();
+                    routes.setBusNo(string[0]);
+                    routes.setArrCity(string[1]);
+                    routes.setDepCity(string[2]);
+                    
+                    routeList.add(routes);
+                } else {
+                    Reader.nextLine();
+                }
+                count++;
+            }
+            return routeList;
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Route data is not loaded, File not Found");
+        }
+        return null;
+    }
+//////////////
 public static UsersCrud getInstance() {
         if (usersCrud == null) {
             usersCrud = new UsersCrud();
@@ -94,8 +160,4 @@ public static UsersCrud getInstance() {
         }
         return usersCrud;
     }
-/*public static void main(String[] args)
-{
-    UsersCrud usersCrud = UsersCrud.getInstance();
-}*/
 }

@@ -264,7 +264,7 @@ public class updateAccount extends javax.swing.JFrame {
         user.setEmail(jTextField3.getText());
         user.setName(jTextField2.getText());
         if (Validators.validateCNIC(jTextField4.getText()) == true && Validators.validateEmail(jTextField3.getText()) == true && Validators.validateName(jTextField2.getText())) {
-            crud.editStudent(index, user);
+            crud.editUser(index, user);
             JOptionPane.showMessageDialog(null, "User data is Updated Successfully");
             manageAccounts mange = new manageAccounts();
             crud.setUserList(crud.getUserList());
