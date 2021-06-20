@@ -105,9 +105,9 @@ public class editRoute extends javax.swing.JFrame {
                             .addComponent(jTextField4))))
                 .addGap(151, 151, 151))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(163, 163, 163)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
+                .addGap(44, 44, 44)
                 .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -247,7 +247,11 @@ public class editRoute extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+ java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new editRoute().setVisible(true);
+            }
+        });        // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -316,11 +320,7 @@ public class editRoute extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new editRoute().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
