@@ -5,6 +5,8 @@
  */
 package cs162s21gid27;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -47,7 +49,7 @@ public class usermenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         t4 = new javax.swing.JTextField();
         t1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        t2 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -162,7 +164,7 @@ public class usermenu extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(t3)
                                     .addComponent(t4)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -184,7 +186,7 @@ public class usermenu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -292,8 +294,45 @@ public class usermenu extends javax.swing.JFrame {
 
     private void reserve2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserve2ActionPerformed
         // TODO add your handling code here:
+        seatCruds crud = seatCruds.getInstance();
+        reserveCred res = new reserveCred();
+        res.setEmail(t1.getText());
+        res.setDepCity(t2.getText());
+        res.setArrCity(t3.getText());
+        res.setDate(t4.getText());
+        if (Validators.validateEmail(t1.getText()) && Validators.validateName(t2.getText()) && Validators.validateName(t3.getText())) {
+            if (crud.reserveSeat(res) == true) {
+                
+                JOptionPane.showMessageDialog(null, "Seat is reserved Successfully");
+                usermenu menus = new usermenu();
+                crud.setCredList(crud.getCredList());
+                saveReservations();
+                menus.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "User of same email or CNIC is already Entered");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Data");
+        }
     }//GEN-LAST:event_reserve2ActionPerformed
+private void saveReservations() {
+        try {
+            seatCruds crud = seatCruds.getInstance();
+            FileWriter writer = new FileWriter("Reservations.txt");
+            writer.write("Email:ArrivalCity:DepartureCity:Date");
+            for (int i = 0; i < crud.getCredList().size(); i++) {
+                writer.write("\n"+crud.getCredList().get(i).getEmail() + ":");
+                writer.write(crud.getCredList().get(i).getDepCity() + ":");
+                writer.write(crud.getCredList().get(i).getArrCity()+":");
+                writer.write(crud.getCredList().get(i).getDate());
+            }
+            writer.close();
 
+        } catch (IOException ex) {
+             JOptionPane.showMessageDialog(null, "Error....");
+        }
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -397,10 +436,10 @@ public class usermenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel reserve;
     private javax.swing.JButton reserve2;
     private javax.swing.JTextField t1;
+    private javax.swing.JTextField t2;
     private javax.swing.JTextField t3;
     private javax.swing.JTextField t4;
     // End of variables declaration//GEN-END:variables

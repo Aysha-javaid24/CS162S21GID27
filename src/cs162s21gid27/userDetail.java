@@ -19,5 +19,4 @@ public class userDetail extends Details{
     {
         return this.CNIC;
     }
-    
 }
