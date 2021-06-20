@@ -325,7 +325,7 @@ ArrayList<String> email = new ArrayList<String>();
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         dispose();
-        viewUsers view=new viewUsers();
+        ViewUser view=new ViewUser();
         view.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
   
