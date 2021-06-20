@@ -5,6 +5,9 @@
  */
 package cs162s21gid27;
 
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ayesha Shabbir
@@ -16,6 +19,25 @@ public class view extends javax.swing.JFrame {
      */
     public view() {
         initComponents();
+        DefaultTableModel model = new DefaultTableModel();
+        seatCruds cr = seatCruds.getInstance();
+
+        model.addColumn("Index");
+        model.addColumn("Email");
+        model.addColumn("Departure City");
+        model.addColumn("Arrival City");
+        jTable1.setForeground(Color.BLACK);
+        model.setNumRows(cr.getCredList().size());
+        for (int i = 0; i < cr.getCredList().size(); i++) {
+            String[] rowTable = new String[5];
+            model.setValueAt((i + 1), i, 0);
+            model.setValueAt(cr.getCredList().get(i).getEmail(), i, 1);
+            model.setValueAt(cr.getCredList().get(i).getDepCity(), i, 2);
+            model.setValueAt(cr.getCredList().get(i).getArrCity(), i, 3);
+            model.setValueAt(cr.getCredList().get(i).getDate(), i, 4);
+        }
+        jTable1.setModel(model);
+         dispose();
     }
 
     /**
@@ -44,14 +66,14 @@ public class view extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Email", "DepartureCity", "ArrivalCity", "Date", "Time"
+                "Index", "Email", "DepartureCity", "ArrivalCity", "Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -71,28 +93,28 @@ public class view extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(158, 158, 158))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jButton1)
-                .addGap(21, 21, 21)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,6 +175,11 @@ public class view extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new view().setVisible(true);
+            }
+        });
       
     }
 

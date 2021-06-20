@@ -5,6 +5,8 @@
  */
 package cs162s21gid27;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -148,22 +150,38 @@ public class cancelReser extends javax.swing.JFrame {
         if (t1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Enter Email");
         } else {
-            /*if (crud.searchCred(res) != -1) {
-                user = crud.getUserList().get(crud.searchUser(user));
-                crud.getUserList().remove(user);
-                JOptionPane.showMessageDialog(null, "User has been removed Successfully");
-                manageAccounts manage = new manageAccounts();
-                saveUsers();
-                crud.setUserList(crud.getUserList());
+            if (crud.searchCred(res) != -1) {
+                res = crud.getCredList().get(crud.searchCred(res));
+                crud.getCredList().remove(res);
+                JOptionPane.showMessageDialog(null, "Reservation has been cancelled.");
+                usermenu manage = new usermenu();
+                saveReservations();
+                crud.setCredList(crud.getCredList());
                 manage.setVisible(true);
                 this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Credentials");
-            }*/
+            }
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+private void saveReservations() {
+        try {
+            seatCruds crud = seatCruds.getInstance();
+            FileWriter writer = new FileWriter("Reservations.txt");
+            writer.write("Email:ArrivalCity:DepartureCity:Date");
+            for (int i = 0; i < crud.getCredList().size(); i++) {
+                writer.write("\n"+crud.getCredList().get(i).getEmail() + ":");
+                writer.write(crud.getCredList().get(i).getDepCity() + ":");
+                writer.write(crud.getCredList().get(i).getArrCity()+":");
+                writer.write(crud.getCredList().get(i).getDate());
+            }
+            writer.close();
 
+        } catch (IOException ex) {
+             JOptionPane.showMessageDialog(null, "Error....");
+        }
+    }
     /**
      * @param args the command line arguments
      */

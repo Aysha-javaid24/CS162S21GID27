@@ -47,7 +47,7 @@ public class DeleteAccount extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs162s21gid27/icons8_e_mail_48px_1.png"))); // NOI18N
-        jLabel2.setText("Email");
+        jLabel2.setText("CNIC");
 
         jButton2.setBackground(new java.awt.Color(153, 204, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -72,7 +72,7 @@ public class DeleteAccount extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(L1)
@@ -138,9 +138,9 @@ public class DeleteAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
         UsersCrud crud = UsersCrud.getInstance();
         userDetail user = new userDetail();
-        user.setCNIC(T1.getText());
+        user.setEmail(T1.getText());
         if (T1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Enter CNIC");
+            JOptionPane.showMessageDialog(null, "Enter Email");
         } else {
             if (crud.searchUser(user) != -1) {
                 user = crud.getUserList().get(crud.searchUser(user));

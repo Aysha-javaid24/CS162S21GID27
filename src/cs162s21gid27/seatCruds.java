@@ -83,7 +83,7 @@ public class seatCruds {
     public static seatCruds getInstance() {
         if (seatCruds == null) {
             seatCruds = new seatCruds();
-            //seatCruds.setCredList(loadReservations());
+            seatCruds.setCredList(loadReservations());
 
             return seatCruds;
         }

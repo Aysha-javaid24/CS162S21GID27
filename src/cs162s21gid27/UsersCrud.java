@@ -36,7 +36,7 @@ public class UsersCrud {
     ////////////////////
     public int searchUser(userDetail users) {
         for (int i = 0; i < this.userList.size(); i++) {
-            if (this.userList.get(i).CNIC.equals(users.getCNIC()) || this.userList.get(i).getEmail().equals(users.getEmail())) {
+            if (this.userList.get(i).getEmail().equals(users.getEmail())) {
                 return i;
             }
         }
