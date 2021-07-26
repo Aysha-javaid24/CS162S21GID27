@@ -1,6 +1,7 @@
 Name:Email:CNIC
-hihihi:3520211112768:habiba@gmail.com
-ali:4534211187098:ali@gmail.com
-abdul:abdul@gmail.com:3520211121760
-jhj:7654322212346:abdul@gmail.com
-javaid:javaida@gmail.com:3520259910879
+hihihi:habiba@gmail.com:3520211112768
+ali:ali@gmail.com:4534211187098
+abdul:3520211121760:abdul@gmail.com
+jhj:abdul@gmail.com:7654322212346
+javaid:3520259910879:javaida@gmail.com
+habiba javaid:hnptani@gmail.com:3520266632458
